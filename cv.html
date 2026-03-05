@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greg Enos - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            color: #1e3c72;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 0 8px 8px 0;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #fafbfc;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .experience-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.3em;
+            color: #1e3c72;
+            font-weight: 700;
+        }
+
+        .company {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .date-location {
+            text-align: right;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .date {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .job-description {
+            color: #555;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .job-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-description li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .job-description li:before {
+            content: "▸";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .education-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-top: 3px solid #667eea;
+        }
+
+        .edu-school {
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+
+        .edu-degree {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .edu-date {
+            color: #667eea;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .link-category h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .link-list {
+            list-style: none;
+        }
+
+        .link-list li {
+            margin: 8px 0;
+        }
+
+        .link-list a {
+            color: #1e3c72;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .link-list a:hover {
+            background: #f0f0f0;
+            color: #667eea;
+        }
+
+        .link-list a:before {
+            content: "🔗";
+        }
+
+        .current-role {
+            border-left-color: #28a745 !important;
+            background: #f0fff4 !important;
+        }
+
+        .current-role .date {
+            background: #28a745 !important;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .experience-item:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .job-header {
+                flex-direction: column;
+            }
+            .date-location {
+                text-align: left;
+            }
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>GREG ENOS</h1>
+            <div class="tagline">Computer Technology Student | Python Scripting | Cybersecurity</div>
+            <div class="contact-grid">
+                <div class="contact-item">📱 +254 768014089</div>
+                <div class="contact-item">✉️ gregorenos2021@yahoo.com</div>
+                <div class="contact-item">📍 Nairobi, Kenya</div>
+                <div class="contact-item"><a href="https://www.linkedin.com/in/greg-enos-21b891302/" target="_blank">LinkedIn</a></div>
+                <div class="contact-item"><a href="https://github.com/n00b01" target="_blank">GitHub</a></div>
+                <div class="contact-item"><a href="https://g3tech.netlify.app/" target="_blank">Portfolio</a></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Summary -->
+            <div class="section">
+                <div class="section-title">Professional Summary</div>
+                <div class="summary-box">
+                    Aspiring cybersecurity specialist and Python developer currently pursuing a degree in Computer Technology at Multimedia University. Skilled in scripting, digital forensics, and system analysis, with hands-on experience in threat detection and ethical hacking. Also proficient in graphic design and video content creation, blending technical expertise with creative storytelling. Passionate about secure system development, innovation, and impactful digital content.
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="section">
+                <div class="section-title">Professional Experience</div>
+
+                <!-- Shamiri Group - Current -->
+                <div class="experience-item current-role">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Fellow</div>
+                            <div class="company">Shamiri Group</div>
+                            <div style="color: #666; font-size: 0.9em;">Youth mental health and development organization</div>
+                        </div>
+                        <div class="date-location">
+                            <div class="date">02/2026 - Present</div>
+                            <div>Nairobi, Kenya</div>
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Contributing to youth mental health initiatives and community development programs</li>
+                            <li>Collaborating with multidisciplinary teams to implement project objectives</li>
+                            <li>Participating in training and capacity building activities</li>
+                            <li>Supporting research and data collection for program evaluation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- APA Insurance -->
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Insurance Agent</div>
+                            <div class="company">APA Insurance</div>
+                            <div style="color: #666; font-size: 0.9em;">Leading insurance provider in Kenya</div>
+                        </div>
+                        <div class="date-location">
+                            <div class="date">11/2025 - 02/2026</div>
+                            <div>Nairobi, Kenya</div>
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Provided comprehensive insurance solutions and advisory services to clients</li>
+                            <li>Assessed client needs and recommended appropriate insurance products</li>
+                            <li>Processed policy applications and maintained accurate client records</li>
+                            <li>Built and maintained strong client relationships through professional service</li>
+                            <li>Met sales targets while ensuring compliance with industry regulations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Teknikali Tech - Updated -->
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Web Development Manager</div>
+                            <div class="company">Teknikali Tech</div>
+                            <div style="color: #666; font-size: 0.9em;">Setting the standards in Technology</div>
+                        </div>
+                        <div class="date-location">
+                            <div class="date">12/2023 - 12/2024</div>
+                            <div>Nairobi, Kenya</div>
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Took concepts and produced design mockups and prototypes to strengthen designs, enhance user experiences and improve site interactions</li>
+                            <li>Mentored junior developers, fostering professional growth and skill development within the team</li>
+                            <li>Boosted web traffic by improving navigation and rectifying bottlenecks</li>
+                            <li>Contributed to overall company success by designing visually appealing websites that effectively conveyed brand identity and messaging goals, ultimately leading to increased user engagement rates</li>
+                            <li>Established internal processes to streamline workflow and improve communication between departments involved in web development projects</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Remotasks -->
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Copywriter</div>
+                            <div class="company">Remotasks</div>
+                            <div style="color: #666; font-size: 0.9em;">Online Platform for remote tasks</div>
+                        </div>
+                        <div class="date-location">
+                            <div class="date">12/2023 - 03/2024</div>
+                            <div>Nairobi, Kenya</div>
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Edited existing copy to improve readability while preserving the intended message</li>
+                            <li>Brainstormed new approaches to increase engagement with target audiences</li>
+                            <li>Translated complex technical information into concise yet compelling copy</li>
+                            <li>Provided guidance on best practices for tone of voice across all channels</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Abdulahi Electronic Shop -->
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Sales Assistant</div>
+                            <div class="company">Abdulahi Electronic Shop</div>
+                            <div style="color: #666; font-size: 0.9em;">Electronic and Electric Appliances</div>
+                        </div>
+                        <div class="date-location">
+                            <div class="date">03/2020 - 11/2020</div>
+                            <div>Homabay, Kenya</div>
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Greeted customers and provided assistance with product selection</li>
+                            <li>Assisted in creating displays to promote products</li>
+                            <li>Organized stockroom shelves, racks and bins according to store layout and product categories</li>
+                            <li>Assisted customers with returns, exchanges and refunds</li>
+                            <li>Replenished merchandise on shelves as needed throughout the day</li>
+                            <li>Performed cashier duties such as scanning items, processing payments, and issuing receipts or change due</li>
+                            <li>Maintained cleanliness of the sales floor area at all times</li>
+                            <li>Completed daily reports on sales performance metrics such as units sold per hour, day, week, month</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="section">
+                <div class="section-title">Education</div>
+                <div class="education-grid">
+                    <div class="education-item">
+                        <div class="edu-school">Multimedia University of Kenya</div>
+                        <div class="edu-degree">Bachelor of Science in Computer Technology</div>
+                        <div class="edu-date">In Progress</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="edu-school">Moringa School</div>
+                        <div class="edu-degree">CyberSecurity Prep Course</div>
+                        <div class="edu-date">Completed</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="edu-school">Cognitive Class (IBM)</div>
+                        <div class="edu-degree">Python 101 for Data Science Certificate</div>
+                        <div class="edu-date">04/2024 - 05/2024</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="edu-school">Agoro Sare High School</div>
+                        <div class="edu-degree">Kenya Certificate of Secondary Education (KCSE)</div>
+                        <div class="edu-date">01/2020 - 11/2023</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects & Content -->
+            <div class="section">
+                <div class="section-title">Projects & Content</div>
+                <div class="links-grid">
+                    <div class="link-category">
+                        <h4>🚀 GitHub Projects</h4>
+                        <ul class="link-list">
+                            <li><a href="https://github.com/n00b01/arithmetic_formatter" target="_blank">Arithmetic Formatter</a></li>
+                            <li><a href="https://github.com/n00b01/expense" target="_blank">Expense Tracker</a></li>
+                            <li><a href="https://github.com/n00b01?tab=repositories" target="_blank">All Repositories</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-category">
+                        <h4>📱 Content Creation</h4>
+                        <ul class="link-list">
+                            <li><a href="https://www.youtube.com/@gregoenos" target="_blank">YouTube Channel</a></li>
+                            <li><a href="https://www.instagram.com/gregoenos/" target="_blank">Instagram</a></li>
+                            <li><a href="https://pin.it/70BhUiqT8" target="_blank">Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
