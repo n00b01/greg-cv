@@ -27,6 +27,36 @@
             overflow: hidden;
         }
 
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ── HEADER ── */
         .header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
@@ -69,6 +99,7 @@
             text-decoration: none;
         }
 
+        /* ── CONTENT ── */
         .content {
             padding: 40px;
         }
@@ -88,6 +119,7 @@
             letter-spacing: 1px;
         }
 
+        /* ── SUMMARY ── */
         .summary-box {
             background: #f8f9fa;
             padding: 20px;
@@ -97,6 +129,7 @@
             color: #444;
         }
 
+        /* ── EXPERIENCE ── */
         .experience-item {
             margin-bottom: 30px;
             padding: 20px;
@@ -174,6 +207,16 @@
             font-weight: bold;
         }
 
+        .current-role {
+            border-left-color: #28a745 !important;
+            background: #f0fff4 !important;
+        }
+
+        .current-role .date {
+            background: #28a745 !important;
+        }
+
+        /* ── EDUCATION ── */
         .education-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -185,6 +228,12 @@
             padding: 15px;
             border-radius: 8px;
             border-top: 3px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .education-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
         }
 
         .edu-school {
@@ -205,6 +254,90 @@
             margin-top: 5px;
         }
 
+        .edu-note {
+            color: #777;
+            font-size: 0.85em;
+            margin-top: 6px;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 14px;
+            border-top: 3px solid #764ba2;
+        }
+
+        .skill-category h4 {
+            color: #1e3c72;
+            font-size: 0.9em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #eef0ff;
+            color: #3a4db5;
+            border-radius: 12px;
+            padding: 3px 10px;
+            font-size: 0.82em;
+            margin: 3px 2px;
+            font-weight: 500;
+        }
+
+        /* ── CERTIFICATIONS ── */
+        .cert-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px 14px;
+            border-left: 3px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cert-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .cert-icon {
+            font-size: 1.2em;
+            margin-top: 1px;
+            flex-shrink: 0;
+        }
+
+        .cert-text {
+            font-size: 0.9em;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .cert-issuer {
+            font-size: 0.78em;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        /* ── PROJECTS ── */
         .links-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -245,49 +378,32 @@
             content: "🔗";
         }
 
-        .current-role {
-            border-left-color: #28a745 !important;
-            background: #f0fff4 !important;
-        }
-
-        .current-role .date {
-            background: #28a745 !important;
-        }
-
+        /* ── PRINT ── */
         @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            .resume-container {
-                box-shadow: none;
-                border-radius: 0;
-            }
-            .experience-item:hover {
-                transform: none;
-                box-shadow: none;
+            body { background: white; padding: 0; }
+            .resume-container { box-shadow: none; border-radius: 0; }
+            .reveal, .reveal-left, .reveal-right {
+                opacity: 1 !important;
+                transform: none !important;
             }
         }
 
+        /* ── RESPONSIVE ── */
         @media (max-width: 600px) {
-            .job-header {
-                flex-direction: column;
-            }
-            .date-location {
-                text-align: left;
-            }
-            .links-grid {
-                grid-template-columns: 1fr;
-            }
+            .job-header { flex-direction: column; }
+            .date-location { text-align: left; }
+            .links-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="resume-container">
-        <!-- Header -->
+
+        <!-- ── HEADER ── -->
         <div class="header">
             <h1>GREG ENOS</h1>
-            <div class="tagline">Computer Technology Student | Python Scripting | Cybersecurity</div>
+            <div class="tagline">Computer Technology Student | Python Developer | Cybersecurity</div>
             <div class="contact-grid">
                 <div class="contact-item">📱 +254 768014089</div>
                 <div class="contact-item">✉️ gregorenos2021@yahoo.com</div>
@@ -299,28 +415,57 @@
         </div>
 
         <div class="content">
-            <!-- Summary -->
-            <div class="section">
+
+            <!-- ── 1. PROFESSIONAL SUMMARY ── -->
+            <div class="section reveal">
                 <div class="section-title">Professional Summary</div>
                 <div class="summary-box">
-                    Aspiring cybersecurity specialist and Python developer currently pursuing a degree in Computer Technology at Multimedia University. Skilled in scripting, digital forensics, and system analysis, with hands-on experience in threat detection and ethical hacking. Also proficient in graphic design and video content creation, blending technical expertise with creative storytelling. Passionate about secure system development, innovation, and impactful digital content.
+                    Aspiring cybersecurity specialist and Python developer currently pursuing a Bachelor of Computer Technology at Multimedia University of Kenya. Skilled in backend development, scripting, networking fundamentals, and cybersecurity basics, with hands-on experience in cloud-native concepts, Kubernetes, and API development. Also proficient in graphic design and video content creation, blending technical expertise with creative storytelling. Passionate about secure system development, innovation, and impactful digital content.
                 </div>
             </div>
 
-            <!-- Experience -->
-            <div class="section">
-                <div class="section-title">Professional Experience</div>
+            <!-- ── 2. EDUCATION ── -->
+            <div class="section reveal">
+                <div class="section-title">Education</div>
+                <div class="education-grid">
+                    <div class="education-item reveal-left">
+                        <div class="edu-school">Multimedia University of Kenya</div>
+                        <div class="edu-degree">Bachelor of Computer Technology</div>
+                        <div class="edu-date">2024 – Present</div>
+                        <div class="edu-note">Focus on software development, systems, and technology.</div>
+                    </div>
+                    <div class="education-item reveal">
+                        <div class="edu-school">Moringa School</div>
+                        <div class="edu-degree">Cybersecurity Prep Course</div>
+                        <div class="edu-date">Feb 2024 – May 2024</div>
+                        <div class="edu-note">4-month intensive covering cybersecurity fundamentals, systems, and networking basics.</div>
+                    </div>
+                    <div class="education-item reveal">
+                        <div class="edu-school">Cognitive Class (IBM)</div>
+                        <div class="edu-degree">Python 101 for Data Science</div>
+                        <div class="edu-date">Apr 2024 – May 2024</div>
+                    </div>
+                    <div class="education-item reveal-right">
+                        <div class="edu-school">Agoro Sare High School</div>
+                        <div class="edu-degree">Kenya Certificate of Secondary Education (KCSE)</div>
+                        <div class="edu-date">2021 – 2023</div>
+                    </div>
+                </div>
+            </div>
 
-                <!-- Shamiri Group - Current -->
-                <div class="experience-item current-role">
+            <!-- ── 3. PROFESSIONAL EXPERIENCE ── -->
+            <div class="section">
+                <div class="section-title reveal">Professional Experience</div>
+
+                <div class="experience-item current-role reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Fellow</div>
                             <div class="company">Shamiri Group</div>
-                            <div style="color: #666; font-size: 0.9em;">Youth mental health and development organization</div>
+                            <div style="color:#666;font-size:0.9em;">Youth mental health and development organization</div>
                         </div>
                         <div class="date-location">
-                            <div class="date">02/2026 - Present</div>
+                            <div class="date">02/2026 – Present</div>
                             <div>Nairobi, Kenya</div>
                         </div>
                     </div>
@@ -334,16 +479,15 @@
                     </div>
                 </div>
 
-                <!-- APA Insurance -->
-                <div class="experience-item">
+                <div class="experience-item reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Insurance Agent</div>
                             <div class="company">APA Insurance</div>
-                            <div style="color: #666; font-size: 0.9em;">Leading insurance provider in Kenya</div>
+                            <div style="color:#666;font-size:0.9em;">Leading insurance provider in Kenya</div>
                         </div>
                         <div class="date-location">
-                            <div class="date">11/2025 - 02/2026</div>
+                            <div class="date">11/2025 – 02/2026</div>
                             <div>Nairobi, Kenya</div>
                         </div>
                     </div>
@@ -358,40 +502,38 @@
                     </div>
                 </div>
 
-                <!-- Teknikali Tech - Updated -->
-                <div class="experience-item">
+                <div class="experience-item reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Web Development Manager</div>
                             <div class="company">Teknikali Tech</div>
-                            <div style="color: #666; font-size: 0.9em;">Setting the standards in Technology</div>
+                            <div style="color:#666;font-size:0.9em;">Setting the standards in Technology</div>
                         </div>
                         <div class="date-location">
-                            <div class="date">12/2023 - 12/2024</div>
+                            <div class="date">12/2023 – 12/2024</div>
                             <div>Nairobi, Kenya</div>
                         </div>
                     </div>
                     <div class="job-description">
                         <ul>
-                            <li>Took concepts and produced design mockups and prototypes to strengthen designs, enhance user experiences and improve site interactions</li>
-                            <li>Mentored junior developers, fostering professional growth and skill development within the team</li>
+                            <li>Produced design mockups and prototypes to strengthen UX and improve site interactions</li>
+                            <li>Mentored junior developers, fostering professional growth within the team</li>
                             <li>Boosted web traffic by improving navigation and rectifying bottlenecks</li>
-                            <li>Contributed to overall company success by designing visually appealing websites that effectively conveyed brand identity and messaging goals, ultimately leading to increased user engagement rates</li>
-                            <li>Established internal processes to streamline workflow and improve communication between departments involved in web development projects</li>
+                            <li>Designed visually appealing websites that conveyed brand identity, increasing user engagement</li>
+                            <li>Established internal processes to streamline workflow and cross-department communication</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Remotasks -->
-                <div class="experience-item">
+                <div class="experience-item reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Copywriter</div>
                             <div class="company">Remotasks</div>
-                            <div style="color: #666; font-size: 0.9em;">Online Platform for remote tasks</div>
+                            <div style="color:#666;font-size:0.9em;">Online Platform for remote tasks</div>
                         </div>
                         <div class="date-location">
-                            <div class="date">12/2023 - 03/2024</div>
+                            <div class="date">12/2023 – 03/2024</div>
                             <div>Nairobi, Kenya</div>
                         </div>
                     </div>
@@ -399,22 +541,21 @@
                         <ul>
                             <li>Edited existing copy to improve readability while preserving the intended message</li>
                             <li>Brainstormed new approaches to increase engagement with target audiences</li>
-                            <li>Translated complex technical information into concise yet compelling copy</li>
+                            <li>Translated complex technical information into concise, compelling copy</li>
                             <li>Provided guidance on best practices for tone of voice across all channels</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Abdulahi Electronic Shop -->
-                <div class="experience-item">
+                <div class="experience-item reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Sales Assistant</div>
                             <div class="company">Abdulahi Electronic Shop</div>
-                            <div style="color: #666; font-size: 0.9em;">Electronic and Electric Appliances</div>
+                            <div style="color:#666;font-size:0.9em;">Electronic and Electric Appliances</div>
                         </div>
                         <div class="date-location">
-                            <div class="date">03/2020 - 11/2020</div>
+                            <div class="date">03/2020 – 11/2020</div>
                             <div>Homabay, Kenya</div>
                         </div>
                     </div>
@@ -422,57 +563,134 @@
                         <ul>
                             <li>Greeted customers and provided assistance with product selection</li>
                             <li>Assisted in creating displays to promote products</li>
-                            <li>Organized stockroom shelves, racks and bins according to store layout and product categories</li>
-                            <li>Assisted customers with returns, exchanges and refunds</li>
-                            <li>Replenished merchandise on shelves as needed throughout the day</li>
-                            <li>Performed cashier duties such as scanning items, processing payments, and issuing receipts or change due</li>
-                            <li>Maintained cleanliness of the sales floor area at all times</li>
-                            <li>Completed daily reports on sales performance metrics such as units sold per hour, day, week, month</li>
+                            <li>Organized stockroom shelves and bins according to store layout and product categories</li>
+                            <li>Assisted customers with returns, exchanges, and refunds</li>
+                            <li>Performed cashier duties including processing payments and issuing receipts</li>
+                            <li>Completed daily reports on sales performance metrics</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Education -->
-            <div class="section">
-                <div class="section-title">Education</div>
-                <div class="education-grid">
-                    <div class="education-item">
-                        <div class="edu-school">Multimedia University of Kenya</div>
-                        <div class="edu-degree">Bachelor of Science in Computer Technology</div>
-                        <div class="edu-date">In Progress</div>
+            <!-- ── 4. SKILLS ── -->
+            <div class="section reveal">
+                <div class="section-title">Skills</div>
+                <div class="skills-grid">
+                    <div class="skill-category reveal-left">
+                        <h4>💻 Programming & Dev</h4>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">Scripting</span>
+                        <span class="skill-tag">Backend APIs</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Git & GitHub</span>
                     </div>
-                    <div class="education-item">
-                        <div class="edu-school">Moringa School</div>
-                        <div class="edu-degree">CyberSecurity Prep Course</div>
-                        <div class="edu-date">Completed</div>
+                    <div class="skill-category reveal">
+                        <h4>☁️ Cloud & Systems</h4>
+                        <span class="skill-tag">Linux CLI</span>
+                        <span class="skill-tag">Cloud Computing</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Containers</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">Scalable Systems</span>
                     </div>
-                    <div class="education-item">
-                        <div class="edu-school">Cognitive Class (IBM)</div>
-                        <div class="edu-degree">Python 101 for Data Science Certificate</div>
-                        <div class="edu-date">04/2024 - 05/2024</div>
+                    <div class="skill-category reveal">
+                        <h4>🌐 Networking</h4>
+                        <span class="skill-tag">TCP/IP</span>
+                        <span class="skill-tag">Routing</span>
+                        <span class="skill-tag">Wireless Networks</span>
+                        <span class="skill-tag">Network Design</span>
                     </div>
-                    <div class="education-item">
-                        <div class="edu-school">Agoro Sare High School</div>
-                        <div class="edu-degree">Kenya Certificate of Secondary Education (KCSE)</div>
-                        <div class="edu-date">01/2020 - 11/2023</div>
+                    <div class="skill-category reveal-right">
+                        <h4>🔐 Cybersecurity</h4>
+                        <span class="skill-tag">Threat Analysis</span>
+                        <span class="skill-tag">Vulnerability Assessment</span>
+                        <span class="skill-tag">Secure Coding</span>
+                        <span class="skill-tag">Digital Forensics</span>
+                        <span class="skill-tag">Ethical Hacking</span>
+                    </div>
+                    <div class="skill-category reveal">
+                        <h4>🧠 General</h4>
+                        <span class="skill-tag">Analytical Thinking</span>
+                        <span class="skill-tag">Debugging</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Fast Learner</span>
+                        <span class="skill-tag">Graphic Design</span>
+                        <span class="skill-tag">Content Creation</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Projects & Content -->
-            <div class="section">
-                <div class="section-title">Projects & Content</div>
+            <!-- ── 5. CERTIFICATIONS ── -->
+            <div class="section reveal">
+                <div class="section-title">Certifications &amp; Badges</div>
+                <div class="cert-list">
+                    <div class="cert-item reveal-left">
+                        <div class="cert-icon">🏅</div>
+                        <div>
+                            <div class="cert-text">Python Programming Certification</div>
+                            <div class="cert-issuer">freeCodeCamp</div>
+                        </div>
+                    </div>
+                    <div class="cert-item reveal-right">
+                        <div class="cert-icon">🏅</div>
+                        <div>
+                            <div class="cert-text">Python for Data Science</div>
+                            <div class="cert-issuer">IBM / Cognitive Class</div>
+                        </div>
+                    </div>
+                    <div class="cert-item reveal-left">
+                        <div class="cert-icon">🏅</div>
+                        <div>
+                            <div class="cert-text">Introduction to Cybersecurity</div>
+                            <div class="cert-issuer">Cisco</div>
+                        </div>
+                    </div>
+                    <div class="cert-item reveal-right">
+                        <div class="cert-icon">🏅</div>
+                        <div>
+                            <div class="cert-text">Cybersecurity Fundamentals</div>
+                            <div class="cert-issuer">Moringa School</div>
+                        </div>
+                    </div>
+                    <div class="cert-item reveal-left">
+                        <div class="cert-icon">🏅</div>
+                        <div>
+                            <div class="cert-text">Building Wireless Community Networks</div>
+                            <div class="cert-issuer">Internet Society</div>
+                        </div>
+                    </div>
+                    <div class="cert-item reveal-right">
+                        <div class="cert-icon">🏅</div>
+                        <div>
+                            <div class="cert-text">Fundamentals of Designing &amp; Deploying Computer Networks</div>
+                            <div class="cert-issuer">Internet Society</div>
+                        </div>
+                    </div>
+                    <div class="cert-item reveal-left">
+                        <div class="cert-icon">🏅</div>
+                        <div>
+                            <div class="cert-text">Kubernetes and Cloud Native Essentials (LFS250)</div>
+                            <div class="cert-issuer">Andela</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── 6. PROJECTS & CONTENT ── -->
+            <div class="section reveal">
+                <div class="section-title">Projects &amp; Content</div>
                 <div class="links-grid">
-                    <div class="link-category">
+                    <div class="link-category reveal-left">
                         <h4>🚀 GitHub Projects</h4>
                         <ul class="link-list">
-                            <li><a href="https://github.com/nhcarrigan-spring-2026-cohort/scarlet-hydrangea" target="_blank">Free codecamp Project</a></li>
+                            <li><a href="https://github.com/nhcarrigan-spring-2026-cohort/scarlet-hydrangea" target="_blank">freeCodeCamp Project</a></li>
                             <li><a href="https://github.com/n00b01/janepher" target="_blank">Janepher AI</a></li>
                             <li><a href="https://github.com/n00b01?tab=repositories" target="_blank">All Repositories</a></li>
                         </ul>
                     </div>
-                    <div class="link-category">
+                    <div class="link-category reveal-right">
                         <h4>📱 Content Creation</h4>
                         <ul class="link-list">
                             <li><a href="https://www.youtube.com/@gregoenos" target="_blank">YouTube Channel</a></li>
@@ -482,7 +700,30 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+        </div><!-- end .content -->
+    </div><!-- end .resume-container -->
+
+    <!-- ── SCROLL REVEAL SCRIPT ── -->
+    <script>
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    // Stagger children slightly for a nicer cascade
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
