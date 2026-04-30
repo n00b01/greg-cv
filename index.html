@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="googled81782b9bb40607b" />
     <title>Greg Enos - Resume</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -28,364 +25,102 @@
         }
 
         /* ── SCROLL REVEAL ── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-40px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
-        .reveal-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(40px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
-        .reveal-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
 
         /* ── HEADER ── */
         .header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
+            color: white; padding: 40px; text-align: center;
         }
-
-        .header h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .tagline {
-            font-size: 1.2em;
-            opacity: 0.9;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        .contact-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .contact-item {
-            background: rgba(255,255,255,0.15);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-        }
+        .header h1 { font-size: 2.8em; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
+        .tagline { font-size: 1.2em; opacity: 0.9; margin-bottom: 20px; font-weight: 300; }
+        .contact-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
+        .contact-item { background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 20px; font-size: 0.9em; backdrop-filter: blur(10px); }
+        .contact-item a { color: white; text-decoration: none; }
 
         /* ── CONTENT ── */
-        .content {
-            padding: 40px;
-        }
-
-        .section {
-            margin-bottom: 35px;
-        }
-
+        .content { padding: 40px; }
+        .section { margin-bottom: 35px; }
         .section-title {
-            font-size: 1.4em;
-            color: #1e3c72;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 1.4em; color: #1e3c72; border-bottom: 3px solid #667eea;
+            padding-bottom: 10px; margin-bottom: 20px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
         }
 
         /* ── SUMMARY ── */
         .summary-box {
-            background: #f8f9fa;
-            padding: 20px;
-            border-left: 4px solid #667eea;
-            border-radius: 0 8px 8px 0;
-            line-height: 1.6;
-            color: #444;
+            background: #f8f9fa; padding: 20px; border-left: 4px solid #667eea;
+            border-radius: 0 8px 8px 0; line-height: 1.6; color: #444;
         }
 
         /* ── EXPERIENCE ── */
         .experience-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #fafbfc;
-            border-radius: 8px;
-            border-left: 4px solid #764ba2;
+            margin-bottom: 30px; padding: 20px; background: #fafbfc;
+            border-radius: 8px; border-left: 4px solid #764ba2;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-
-        .experience-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .job-title {
-            font-size: 1.3em;
-            color: #1e3c72;
-            font-weight: 700;
-        }
-
-        .company {
-            color: #667eea;
-            font-weight: 600;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-        }
-
-        .date-location {
-            text-align: right;
-            color: #666;
-            font-size: 0.9em;
-        }
-
-        .date {
-            background: #667eea;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 5px;
-        }
-
-        .job-description {
-            color: #555;
-            line-height: 1.6;
-            margin-top: 10px;
-        }
-
-        .job-description ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .job-description li {
-            padding: 5px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .job-description li:before {
-            content: "▸";
-            color: #667eea;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .current-role {
-            border-left-color: #28a745 !important;
-            background: #f0fff4 !important;
-        }
-
-        .current-role .date {
-            background: #28a745 !important;
-        }
+        .experience-item:hover { transform: translateX(5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .job-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; flex-wrap: wrap; gap: 10px; }
+        .job-title { font-size: 1.3em; color: #1e3c72; font-weight: 700; }
+        .company { color: #667eea; font-weight: 600; font-size: 1.1em; margin-bottom: 5px; }
+        .date-location { text-align: right; color: #666; font-size: 0.9em; }
+        .date { background: #667eea; color: white; padding: 4px 12px; border-radius: 15px; font-weight: 600; display: inline-block; margin-bottom: 5px; }
+        .job-description { color: #555; line-height: 1.6; margin-top: 10px; }
+        .job-description ul { list-style: none; padding-left: 0; }
+        .job-description li { padding: 5px 0 5px 20px; position: relative; }
+        .job-description li:before { content: "▸"; color: #667eea; position: absolute; left: 0; font-weight: bold; }
+        .current-role { border-left-color: #28a745 !important; background: #f0fff4 !important; }
+        .current-role .date { background: #28a745 !important; }
 
         /* ── EDUCATION ── */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
+        .education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .education-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            border-top: 3px solid #667eea;
-            transition: transform 0.2s, box-shadow 0.2s;
+            background: #f8f9fa; padding: 15px; border-radius: 8px;
+            border-top: 3px solid #667eea; transition: transform 0.2s, box-shadow 0.2s;
         }
-
-        .education-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-        }
-
-        .edu-school {
-            font-weight: 700;
-            color: #1e3c72;
-            margin-bottom: 5px;
-        }
-
-        .edu-degree {
-            color: #555;
-            font-size: 0.95em;
-        }
-
-        .edu-date {
-            color: #667eea;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-top: 5px;
-        }
-
-        .edu-note {
-            color: #777;
-            font-size: 0.85em;
-            margin-top: 6px;
-            font-style: italic;
-            line-height: 1.4;
-        }
+        .education-item:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
+        .edu-school { font-weight: 700; color: #1e3c72; margin-bottom: 5px; }
+        .edu-degree { color: #555; font-size: 0.95em; }
+        .edu-date { color: #667eea; font-size: 0.85em; font-weight: 600; margin-top: 5px; }
+        .edu-note { color: #777; font-size: 0.85em; margin-top: 6px; font-style: italic; line-height: 1.4; }
 
         /* ── SKILLS ── */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-        }
-
-        .skill-category {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 14px;
-            border-top: 3px solid #764ba2;
-        }
-
-        .skill-category h4 {
-            color: #1e3c72;
-            font-size: 0.9em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-        }
-
-        .skill-tag {
-            display: inline-block;
-            background: #eef0ff;
-            color: #3a4db5;
-            border-radius: 12px;
-            padding: 3px 10px;
-            font-size: 0.82em;
-            margin: 3px 2px;
-            font-weight: 500;
-        }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+        .skill-category { background: #f8f9fa; border-radius: 8px; padding: 14px; border-top: 3px solid #764ba2; }
+        .skill-category h4 { color: #1e3c72; font-size: 0.9em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+        .skill-tag { display: inline-block; background: #eef0ff; color: #3a4db5; border-radius: 12px; padding: 3px 10px; font-size: 0.82em; margin: 3px 2px; font-weight: 500; }
 
         /* ── CERTIFICATIONS ── */
-        .cert-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 12px;
-        }
-
+        .cert-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
         .cert-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 12px 14px;
-            border-left: 3px solid #667eea;
+            display: flex; align-items: flex-start; gap: 10px; background: #f8f9fa;
+            border-radius: 8px; padding: 12px 14px; border-left: 3px solid #667eea;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-
-        .cert-item:hover {
-            transform: translateX(4px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-
-        .cert-icon {
-            font-size: 1.2em;
-            margin-top: 1px;
-            flex-shrink: 0;
-        }
-
-        .cert-text {
-            font-size: 0.9em;
-            color: #333;
-            line-height: 1.4;
-        }
-
-        .cert-issuer {
-            font-size: 0.78em;
-            color: #888;
-            margin-top: 2px;
-        }
+        .cert-item:hover { transform: translateX(4px); box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+        .cert-icon { font-size: 1.2em; margin-top: 1px; flex-shrink: 0; }
+        .cert-text { font-size: 0.9em; color: #333; line-height: 1.4; }
+        .cert-issuer { font-size: 0.78em; color: #888; margin-top: 2px; }
 
         /* ── PROJECTS ── */
-        .links-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .link-category h4 {
-            color: #764ba2;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .link-list {
-            list-style: none;
-        }
-
-        .link-list li {
-            margin: 8px 0;
-        }
-
-        .link-list a {
-            color: #1e3c72;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px;
-            border-radius: 6px;
-            transition: background 0.2s;
-        }
-
-        .link-list a:hover {
-            background: #f0f0f0;
-            color: #667eea;
-        }
-
-        .link-list a:before {
-            content: "🔗";
-        }
+        .links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .link-category h4 { color: #764ba2; margin-bottom: 10px; font-size: 1.1em; }
+        .link-list { list-style: none; }
+        .link-list li { margin: 8px 0; }
+        .link-list a { color: #1e3c72; text-decoration: none; display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: 6px; transition: background 0.2s; }
+        .link-list a:hover { background: #f0f0f0; color: #667eea; }
+        .link-list a:before { content: "🔗"; }
 
         /* ── PRINT ── */
         @media print {
             body { background: white; padding: 0; }
             .resume-container { box-shadow: none; border-radius: 0; }
-            .reveal, .reveal-left, .reveal-right {
-                opacity: 1 !important;
-                transform: none !important;
-            }
+            .reveal, .reveal-left, .reveal-right { opacity: 1 !important; transform: none !important; }
         }
 
         /* ── RESPONSIVE ── */
@@ -403,7 +138,7 @@
         <!-- ── HEADER ── -->
         <div class="header">
             <h1>GREG ENOS</h1>
-            <div class="tagline">Computer Technology Student | Cybersecurity | Networking | Python Developer </div>
+            <div class="tagline">Computer Technology Student | Cybersecurity | Networking | Python Developer</div>
             <div class="contact-grid">
                 <div class="contact-item">📱 +254 768014089</div>
                 <div class="contact-item">✉️ gregorenos2021@yahoo.com</div>
@@ -434,7 +169,7 @@
                         <div class="edu-date">2024 – Present</div>
                         <div class="edu-note">Focus on software development, systems, and technology.</div>
                     </div>
-                     <div class="education-item reveal">
+                    <div class="education-item reveal">
                         <div class="edu-school">Internet Society</div>
                         <div class="edu-degree">Building and Deploying Community Networks</div>
                         <div class="edu-date">March 2026 – May 2026</div>
@@ -470,7 +205,7 @@
                             <div style="color:#666;font-size:0.9em;">Youth mental health and development organization</div>
                         </div>
                         <div class="date-location">
-                            <div class="date">02/2026 – 03/2026 </div>
+                            <div class="date">02/2026 – 03/2026</div>
                             <div>Nairobi, Kenya</div>
                         </div>
                     </div>
@@ -627,7 +362,7 @@
                 </div>
             </div>
 
-            <!-- ── 5. CERTIFICATIONS ── -->
+            <!-- ── 5. CERTIFICATIONS & BADGES ── -->
             <div class="section reveal">
                 <div class="section-title">Certifications &amp; Badges</div>
                 <div class="cert-list">
@@ -673,19 +408,20 @@
                             <div class="cert-issuer">Internet Society</div>
                         </div>
                     </div>
-                     <div class="cert-item reveal-left">
+                    <div class="cert-item reveal-left">
                         <div class="cert-icon">🏅</div>
                         <div>
-                            <div class="cert-text">Internet governance - ICT Education Stakeholders</div>
+                            <div class="cert-text">Internet Governance – ICT Education Stakeholders</div>
                             <div class="cert-issuer">Internet Society</div>
                         </div>
                     </div>
-                    <div class="cert-item reveal-left">
+                    <div class="cert-item reveal-right">
                         <div class="cert-icon">🏅</div>
                         <div>
                             <div class="cert-text">Kubernetes and Cloud Native Essentials (LFS250)</div>
                             <div class="cert-issuer">Andela</div>
                         </div>
+                    </div>
                     <div class="cert-item reveal-left">
                         <div class="cert-icon">🏅</div>
                         <div>
@@ -719,28 +455,20 @@
                 </div>
             </div>
 
-        </div><!-- end .content -->
-    </div><!-- end .resume-container -->
+        </div>
+    </div>
 
     <!-- ── SCROLL REVEAL SCRIPT ── -->
     <script>
         const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Stagger children slightly for a nicer cascade
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, 80);
+                    setTimeout(() => entry.target.classList.add('visible'), 80);
                     observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.12,
-            rootMargin: '0px 0px -40px 0px'
-        });
-
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
         revealElements.forEach(el => observer.observe(el));
     </script>
 </body>
